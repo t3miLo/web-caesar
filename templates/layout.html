@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <title>Caesar Cypher</title>
+    <link rel="stylesheet" type="text/css" media="screen" href='{{ url_for("static", filename="main.css")}}' />
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <form action="" method="post" class=' '>
+        {{ form.hidden_tag() }}
+        <fieldset class='caesar-form'>
+
+            <div>
+                <legend>{{ legend }}</legend>
+                <p> {{ form.rotateBy.label }}
+                    {{ form.rotateBy(min=0, max=26, class='number-input') }} </p>
+
+            </div>
+            <div class='center'>
+                <p>{{ form.textArea.label }}</p>
+                {{ form.textArea(class='caesar-cypher') }}
+            </div>
+            <div class='center'>
+                {{ form.submit }}
+            </div>
+
+        </fieldset>
+
+    </form>
+    {% block content %} {% endblock %}
+
+</body>
+
+</html>

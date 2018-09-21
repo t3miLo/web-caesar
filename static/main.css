@@ -1,0 +1,26 @@
+.caesar-form {
+    background-color: #eee;
+    padding: 20px;
+    margin: 0 auto;
+    width: 540px;
+    font: 16px sans-serif;
+    border-radius: 10px;
+}
+
+legend {
+    text-align: center;
+}
+
+.number-input {
+    width: 36px;
+}
+
+.center {
+    text-align: center;
+}
+
+.caesar-cypher {
+    margin: 10px 0;
+    width: 540px;
+    height: 120px;
+}
