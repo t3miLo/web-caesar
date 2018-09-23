@@ -20,10 +20,11 @@ def index():
         global message
         message = caesar_encrypt(text, rot)
         return redirect(url_for('caesarCypher'))
+
     return render_template('layout.html', form=form, legend='Caesar Cypher')
 
 
-@app.route('/cypher', methods=['GET', 'POST'])
+@app.route('/caesar', methods=['GET', 'POST'])
 def caesarCypher():
     form = CaesarForm()
     if form.validate_on_submit():
@@ -33,7 +34,7 @@ def caesarCypher():
         message = caesar_encrypt(text, rot)
         return redirect(url_for('caesarCypher'))
     code = message
-    return render_template('cypher.html', form=form, legend='Caesar Cypher', code=code)
+    return render_template('caesar.html', form=form, legend='Caesar Cypher', code=code)
 
 
 @app.route('/vigenere', methods=['GET', 'POST'])
@@ -45,8 +46,8 @@ def vigenereCypher():
         text = form.textArea.data
         global message
         message = vigenere_encrypt(text, keyWord)
-        print(message)
         return redirect(url_for('vigenereCypher'))
+
     code = message
     return render_template('vigenere.html', form=form, legend='Vigenere Cypher', code=code)
 

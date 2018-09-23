@@ -4,13 +4,22 @@
     {{ form.hidden_tag() }}
     <fieldset class='caesar-form'>
 
-        <div>
+        <div class='center'>
             <legend>{{ legend }}</legend>
+            <h6 class='alerts'>
+
+                {% if form.keyWord.errors %}
+                {% for error in form.keyWord.errors %}
+                <span> {{ error }} </span>
+                {% endfor %}
+                {% endif %}
+
+            </h6>
             <p> {{ form.keyWord.label }}
-                {{ form.keyWord(min=0, max=26, class='number-input') }} </p>
+                {{ form.keyWord }} </p>
 
         </div>
-        <div class='center'>
+        <div class='center flashes'>
             <p>{{ form.textArea.label }}</p>
             {{ form.textArea(class='caesar-cypher') }}
         </div>

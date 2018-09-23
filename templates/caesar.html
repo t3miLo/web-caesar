@@ -4,10 +4,19 @@
     {{ form.hidden_tag() }}
     <fieldset class='caesar-form'>
 
-        <div>
+        <div class='center'>
             <legend>{{ legend }}</legend>
+            <h6 class='alerts'>
+
+                {% if form.rotateBy.errors %}
+                {% for error in form.rotateBy.errors %}
+                <span> {{ error }} </span>
+                {% endfor %}
+                {% endif %}
+
+            </h6>
             <p> {{ form.rotateBy.label }}
-                {{ form.rotateBy(min=0, max=26, class='number-input') }} </p>
+                {{ form.rotateBy(min=1, max=26, class='number-input') }} </p>
 
         </div>
         <div class='center'>

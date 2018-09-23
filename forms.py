@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, TextAreaField, IntegerField, widgets, TextField
-from wtforms.validators import DataRequired, NumberRange, Length
+from wtforms.validators import DataRequired, NumberRange, Length, ValidationError
 
 
 class CaesarForm(FlaskForm):
@@ -11,9 +11,17 @@ class CaesarForm(FlaskForm):
     submit = SubmitField('Encrypt!')
 
 
+def validate_keyWord(form, field):
+    if field.data.isalpha() is False:
+        raise ValidationError(
+            'You can only use letters in your keyword.')
+
+
 class VigenereForm(FlaskForm):
+
     keyWord = TextField('Enter word for Key ',
-                        validators=[DataRequired(), Length(min=2, max=10)])
+                        validators=[DataRequired(), Length(min=2, max=10), validate_keyWord])
+
     textArea = TextAreaField('Message to Encrypt',
                              validators=[DataRequired()])
     submit = SubmitField('Encrypt!')
