@@ -1,11 +1,12 @@
 from flask import Flask, render_template, url_for, redirect
-from forms import CaesarForm
-from caesar import rotate_string
+from forms import CaesarForm, VigenereForm
+from caesar import caesar_encrypt
+from vigenere import vigenere_encrypt
 
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = 'Jeremiah!0!'
+app.config['SECRET_KEY'] = 'Jeremiah!0!0'
 
 message = ''
 
@@ -17,7 +18,7 @@ def index():
         rot = form.rotateBy.data
         text = form.textArea.data
         global message
-        message = rotate_string(text, rot)
+        message = caesar_encrypt(text, rot)
         return redirect(url_for('caesarCypher'))
     return render_template('layout.html', form=form, legend='Caesar Cypher')
 
@@ -29,10 +30,25 @@ def caesarCypher():
         rot = form.rotateBy.data
         text = form.textArea.data
         global message
-        message = rotate_string(text, rot)
+        message = caesar_encrypt(text, rot)
         return redirect(url_for('caesarCypher'))
     code = message
     return render_template('cypher.html', form=form, legend='Caesar Cypher', code=code)
+
+
+@app.route('/vigenere', methods=['GET', 'POST'])
+def vigenereCypher():
+
+    form = VigenereForm()
+    if form.validate_on_submit():
+        keyWord = form.keyWord.data
+        text = form.textArea.data
+        global message
+        message = vigenere_encrypt(text, keyWord)
+        print(message)
+        return redirect(url_for('vigenereCypher'))
+    code = message
+    return render_template('vigenere.html', form=form, legend='Vigenere Cypher', code=code)
 
 
 app.run()

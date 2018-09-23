@@ -6,8 +6,8 @@
 
         <div>
             <legend>{{ legend }}</legend>
-            <p> {{ form.rotateBy.label }}
-                {{ form.rotateBy(min=0, max=26, class='number-input') }} </p>
+            <p> {{ form.keyWord.label }}
+                {{ form.keyWord(min=0, max=26, class='number-input') }} </p>
 
         </div>
         <div class='center'>
@@ -22,7 +22,7 @@
 
 </form>
 <div class="coded center">
-    <h3>Your Caesar Message is below</h3>
+    <h3>Your Vigenere Coded Message is below</h3>
     <p> {{ code }} </p>
 </div>
 

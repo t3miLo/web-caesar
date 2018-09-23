@@ -1,41 +1,36 @@
-def alphabet_position(character):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    lower = character.lower()
-    return alphabet.index(lower)
+from helpers import rotate_character
 
 
-def rotate_string_13(text):
+def caesar_encrypt(text, rot):
+    checker = 'abcdefghijklmnopqrstuvwxyz'
 
-    rotated = ''
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    new_message = ''
 
-    for char in text:
-        rotated_idx = (alphabet_position(char) + 13) % 26
-        if char.isupper():
-            rotated = rotated + alphabet[rotated_idx].upper()
+    for each_char in list(text):
+        if each_char.lower() not in checker:
+            new_message += each_char.lower()
+
         else:
-            rotated = rotated + alphabet[rotated_idx]
+            each_char in list(text)
+            new_message += rotate_character(each_char, rot)
 
-    return rotated
-
-
-def rotate_character(char, rot):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    rotated_idx = (alphabet_position(char) + rot) % 26
-
-    if char.isupper():
-        return alphabet[rotated_idx].upper()
-    else:
-        return alphabet[rotated_idx]
+    return new_message
 
 
-def rotate_string(text, rot):
+def main():
+    from sys import argv, exit
 
-    rotated = ''
-
-    for char in text:
-        if (char.isalpha()):
-            rotated = rotated + rotate_character(char, rot)
+    message = input('Type a messsage to encrypt : ')
+    try:
+        if len(argv) >= 2:
+            rotation_by = int(argv[1])
         else:
-            rotated = rotated + char
-    return rotated
+            rotation_by = int(input('Rotate by how many? '))
+    except ValueError:
+        print('Woops you did not put a number for the rotation try again!!')
+        exit()
+    print(caesar_encrypt(message, rotation_by))
+
+
+if __name__ == '__main__':
+    main()

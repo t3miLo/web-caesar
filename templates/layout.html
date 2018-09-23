@@ -10,29 +10,8 @@
 </head>
 
 <body>
-
-    <form action="" method="post" class=' '>
-        {{ form.hidden_tag() }}
-        <fieldset class='caesar-form'>
-
-            <div>
-                <legend>{{ legend }}</legend>
-                <p> {{ form.rotateBy.label }}
-                    {{ form.rotateBy(min=0, max=26, class='number-input') }} </p>
-
-            </div>
-            <div class='center'>
-                <p>{{ form.textArea.label }}</p>
-                {{ form.textArea(class='caesar-cypher') }}
-            </div>
-            <div class='center'>
-                {{ form.submit }}
-            </div>
-
-        </fieldset>
-
-    </form>
-    {% block content %} {% endblock %}
+    {% block content %}
+    {% endblock %}
 
 </body>
 
