@@ -1,10 +1,16 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-
-
-
-
+<div class="container">
+    <div class="caesar border">
+          <h1>Caesar Cipher</h1>
+          <a href="{{ url_for('caesarCipher') }}" class="cta">Let's Go</a>
+    </div>
+    <div class="veginere border">
+        <h1>Vigenere Cipher</h1>
+        <a href="{{ url_for('vigenereCipher') }}" class="cta">Let's Go</a>
+    </div>
+  </div>
 
 
 

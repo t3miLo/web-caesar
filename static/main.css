@@ -1,8 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+.caesar {
+    grid-area: caesar;
+    align-self: center;
+    text-align: center;
+
+
+}
+
+.veginere {
+    grid-area: veginere;
+    align-self: center;
+    text-align: center;
+}
+
+.container {
+    height: 100vh;
+    background-image: url("http://getwallpapers.com/wallpaper/full/0/a/c/399821.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'caesar veginere'
+}
+
+.border {
+    color: azure;
+    background: rgba(73, 73, 73, 0.8);
+    width: 50%;
+    margin: 0 auto;
+    border: solid;
+    border-radius: 5%;
+    border-color: azure;
+}
+
+.cta {
+    color: azure;
+    text-decoration: none;
+
+}
+
 .caesar-form {
     background-color: #eee;
     padding: 20px;
-    margin: 0 auto;
+    margin: 15% auto;
     width: 540px;
+    max-height: 55%;
     font: 16px sans-serif;
     border-radius: 10px;
 }
@@ -12,7 +61,7 @@ legend {
 }
 
 .number-input {
-    width: 36px;
+    width: 46px;
 }
 
 .center {
@@ -22,15 +71,21 @@ legend {
 .caesar-cypher {
     margin: 10px 0;
     width: 540px;
+    max-height: 40%;
     height: 120px;
 }
 
 .coded {
     background-color: #eee;
     padding: 10px;
-    margin: 10px auto;
+    margin: 15% auto;
     width: 540px;
+    max-height: 40%;
     border-radius: 10px
+}
+
+.coded p {
+    margin-top: 2em;
 }
 
 .alerts {

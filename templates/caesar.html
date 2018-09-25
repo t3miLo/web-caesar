@@ -1,40 +1,42 @@
 {% extends 'layout.html' %}
 {% block content %}
-<form action="" method="post" class=' '>
-    {{ form.hidden_tag() }}
-    <fieldset class='caesar-form'>
+<div class=container>
+    <form action="" method="post" class=' '>
+        {{ form.hidden_tag() }}
+        <fieldset class='caesar-form'>
 
-        <div class='center'>
-            <legend>{{ legend }}</legend>
-            <h6 class='alerts'>
+            <div class='center'>
+                <legend>{{ legend }}</legend>
+                <h6 class='alerts'>
 
-                {% if form.rotateBy.errors %}
-                {% for error in form.rotateBy.errors %}
-                <span> {{ error }} </span>
-                {% endfor %}
-                {% endif %}
+                    {% if form.rotateBy.errors %}
+                    {% for error in form.rotateBy.errors %}
+                    <span> {{ error }} </span>
+                    {% endfor %}
+                    {% endif %}
 
-            </h6>
-            <p> {{ form.rotateBy.label }}
-                {{ form.rotateBy(min=1, max=26, class='number-input') }} </p>
+                </h6>
+                <p> {{ form.rotateBy.label }}
+                    {{ form.rotateBy(min=1, max=26, class='number-input') }} </p>
 
-        </div>
-        <div class='center'>
-            <p>{{ form.textArea.label }}</p>
-            {{ form.textArea(class='caesar-cypher') }}
-        </div>
-        <div class='center'>
-            {{ form.submit }}
-        </div>
+            </div>
+            <div class='center'>
+     
+                <p>{{ form.textArea.label }}</p>
+                {{ form.textArea(class='caesar-cypher') }}
+            </div>
+            <div class='center'>
+                {{ form.submit }}
+            </div>
 
-    </fieldset>
+        </fieldset>
 
-</form>
-<div class="coded center">
-    <h3>Your Caesar Message is below</h3>
-    <p> {{ code }} </p>
+    </form>
+    <div class="coded center">
+        <h3>Your Caesar Message is below</h3>
+        <p> {{ code }} </p>
+    </div>
 </div>
-
 
 
 {% endblock %}
