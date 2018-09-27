@@ -34,7 +34,7 @@ def caesarCipher():
         message = caesar_encrypt(text, rot)
         return redirect(url_for('caesarCipher'))
     code = message
-    return render_template('caesar.html', form=form, legend='Caesar Cipher', code=code)
+    return render_template('caesar.html', title='Caesar Cipher', form=form, legend='Caesar Cipher', code=code)
 
 
 @app.route('/vigenere', methods=['GET', 'POST'])
@@ -49,7 +49,7 @@ def vigenereCipher():
         return redirect(url_for('vigenereCipher'))
 
     code = message
-    return render_template('vigenere.html', form=form, legend='Vigenere Cipher', code=code)
+    return render_template('vigenere.html', title='Vigenere Cipher', form=form, legend='Vigenere Cipher', code=code)
 
 
 app.run()

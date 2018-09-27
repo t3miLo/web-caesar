@@ -1,40 +1,41 @@
 {% extends 'layout.html' %}
 {% block content %}
-<form action="" method="post" class=' '>
-    {{ form.hidden_tag() }}
-    <fieldset class='caesar-form'>
+<div class="container">
+    <form action="" method="post" class='caesar '>
+        {{ form.hidden_tag() }}
+        <fieldset class='cipher-form'>
 
-        <div class='center'>
-            <legend>{{ legend }}</legend>
-            <h6 class='alerts'>
+            <div class='center'>
+                <legend>{{ legend }}</legend>
+                <h6 class='alerts'>
+                    {% if form.keyWord.errors %}
+                    {% for error in form.keyWord.errors %}
+                    <span> {{ error }} </span>
+                    {% endfor %}
+                    {% endif %}
+               </h6>
+                <p> {{ form.keyWord.label }}
+                    {{ form.keyWord }} </p>
+            </div>
 
-                {% if form.keyWord.errors %}
-                {% for error in form.keyWord.errors %}
-                <span> {{ error }} </span>
-                {% endfor %}
-                {% endif %}
+            <div class='center '>
+                <p>{{ form.textArea.label }}</p>
+                {{ form.textArea(class='caesar-cypher' )   }}
+            </div>
+            <div class='center'>
+                {{ form.submit }}
+            </div>
 
-            </h6>
-            <p> {{ form.keyWord.label }}
-                {{ form.keyWord }} </p>
+        </fieldset>
+    </form>
 
-        </div>
-        <div class='center flashes'>
-            <p>{{ form.textArea.label }}</p>
-            {{ form.textArea(class='caesar-cypher') }}
-        </div>
-        <div class='center'>
-            {{ form.submit }}
-        </div>
+    <form action="{{ url_for('index')}}" class='home-button'>
+        <button type='submit' height='100px' width='60px'>Home</button>
+    </form>
 
-    </fieldset>
-
-</form>
-<div class="coded center">
-    <h3>Your Vigenere Coded Message is below</h3>
-    <p> {{ code }} </p>
+    <div class="coded center veginere">
+        <h3>Your Vigenere Message is below</h3>
+        <p> {{ code }} </p>
+    </div>
 </div>
-
-
-
 {% endblock %}

@@ -18,6 +18,22 @@
     text-align: center;
 }
 
+.home-button {
+    grid-area: home-button;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    /* padding: 20px; */
+
+}
+
+button {
+    height: 70px;
+    width: 80px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .container {
     height: 100vh;
     background-image: url("http://getwallpapers.com/wallpaper/full/0/a/c/399821.jpg");
@@ -25,14 +41,17 @@
     background-position: center;
     background-size: cover;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-rows: 30 60%;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        'caesar veginere'
+        'home-button home-button'
+        'caesar veginere ';
+
 }
 
 .border {
     color: azure;
-    background: rgba(73, 73, 73, 0.8);
+    background: rgba(49, 29, 29, 0.8);
     width: 50%;
     margin: 0 auto;
     border: solid;
@@ -46,7 +65,7 @@
 
 }
 
-.caesar-form {
+.cipher-form {
     background-color: #eee;
     padding: 20px;
     margin: 15% auto;
@@ -61,7 +80,7 @@ legend {
 }
 
 .number-input {
-    width: 46px;
+    width: 55px;
 }
 
 .center {
